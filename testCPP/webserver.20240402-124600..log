@@ -1,0 +1,210 @@
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 4 events = 3 state = -1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 8 events = 3 state = -1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EventLoop.cc:63
+Eventloop 0x7afb61ab9b90 start looping 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 10 events = 3 state = -1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EventLoop.cc:63
+Eventloop 0x7afb612b8b90 start looping 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 12 events = 3 state = -1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EventLoop.cc:63
+Eventloop 0x7afb60ab7b90 start looping 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 6 events = 3 state = -1 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EventLoop.cc:63
+Eventloop 0x7ffd9e7dd520 start looping 
+
+2024-04-02 20:46:00
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:10
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:10
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:10
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:10
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:20
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:20
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:20
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:20
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:30
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:30
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:30
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:30
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 1
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/TcpServer.cc:63
+TcpServer::newConnection [EchoServer01] - new connection [EchoServer01-127.0.0.1:8000#1] from 127.0.0.1:47678 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/TcpConnection.cc:41
+TcpConnection::ctor[EchoServer01-127.0.0.1:8000#1] at fd = 13 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 1
+
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 13 events = 3 state = -1 
+
+2024-04-02 20:46:31
+[INFO] -- test.cc:27
+conn UP : 127.0.0.1:47678
+2024-04-02 20:46:31
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 1
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 17
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/TcpConnection.cc:215
+TcpConnection::handleClose fd=13 state=3 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:67
+func = updateChannel fd = 13 events = 0 state = 1 
+
+2024-04-02 20:46:34
+[INFO] -- test.cc:31
+conn DOWN : 127.0.0.1:47678
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 1
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/TcpServer.cc:90
+TcpServer::removeConnectionInLoop [EchoServer01] - connection EchoServer01-127.0.0.1:8000#1
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:2 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:40
+1 events happened 
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/Channel.cc:51
+channel handleEvent revent : 1
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:97
+func=removeChannel => fd=13
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/TcpConnection.cc:47
+TcpConnection::dtor[EchoServer01-127.0.0.1:8000#1] at fd = 13 state = 3
+
+2024-04-02 20:46:34
+[INFO] -- /home/jyh/Project/myWebserver/EPollPoller.cc:32
+func=poll fd total count:1 
+
