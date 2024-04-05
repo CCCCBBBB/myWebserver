@@ -57,11 +57,38 @@ void TcpConnection::send(const std::string &buf)
         }
         else
         {
-            loop_->runInLoop(std::bind(&TcpConnection::sendInLoop, this, buf.c_str(), buf.size()));// why not just using the runInloop? 
+            // loop_->runInLoop(std::bind(&TcpConnection::sendInLoop, this, buf.c_str(), buf.size()));// why not just using the runInloop? 
+            void (TcpConnection::*fp)(const std::string& message) = &TcpConnection::sendInLoop;
+            loop_->runInLoop(
+                std::bind(fp, this, buf));
         }
     }
 }
 
+void TcpConnection::send(Buffer *buf)
+{
+  if (state_ == kConnected)
+  {
+    if (loop_->isInLoopThread())
+    {
+      sendInLoop(buf->peek(), buf->readableBytes());
+      buf->retrieveAll();
+    }
+    else
+    {
+      void (TcpConnection::*fp)(const std::string& message) = &TcpConnection::sendInLoop;
+      loop_->runInLoop(
+          std::bind(fp,
+                    this,     // FIXME
+                    buf->retrieveAllAsString()));
+                    //std::forward<string>(message)));
+    }
+  }
+}
+void TcpConnection::sendInLoop(const std::string& message)
+{
+    sendInLoop(message.data(), message.size());
+}
 void TcpConnection::sendInLoop(const void *message, size_t len)
 {
     ssize_t nwrote = 0;

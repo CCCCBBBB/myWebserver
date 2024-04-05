@@ -36,10 +36,11 @@ public:
     bool parse(Buffer& buff);
 
     std::string path() const { return path_; }
+    std::string& path()  { return path_; }
     std::string method() const { return method_; }
     std::string version() const { return version_; }
 
-    std::string HttpRequest::GetPost(const std::string& key) const 
+    std::string GetPost(const std::string& key) const 
     {
         if(post_.count(key) == 1) {
             return post_.find(key)->second;
@@ -47,7 +48,7 @@ public:
         return "";
     }
 
-    std::string HttpRequest::GetPost(const char* key) const 
+    std::string GetPost(const char* key) const 
     {
         if(post_.count(key) == 1) {
             return post_.find(key)->second;

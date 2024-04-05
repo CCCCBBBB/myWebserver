@@ -4,7 +4,6 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-const char Buffer::kCRLF[] = "\r\n";
 
 ssize_t Buffer::readFd(int fd, int *saveErrno)
 {

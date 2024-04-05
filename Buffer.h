@@ -26,12 +26,6 @@ public:
     const char* peek() const{ return begin() + readerIndex_; }
 
 
-    const char* findCRLF() const
-    {
-        const char* crlf = std::search(peek(), beginWrite(), kCRLF, kCRLF+2);
-        return crlf == beginWrite() ? NULL : crlf;
-    }
-
     void retrieve(size_t len)
     {
         if(len < readableBytes())
@@ -80,9 +74,13 @@ public:
         std::copy(data, data + len, beginWrite());
         writerIndex_ += len;
     }
+    void append(const std::string& str) 
+    {
+        append(str.data(), str.length());
+    }
 
     char* beginWrite() { return begin() + writerIndex_; }
-    const char* beginWrite() const { return begin() + writerIndex_; }
+    const char* beginWriteConst() const { return begin() + writerIndex_; }
 
     ssize_t readFd(int fd, int* saveErrno);
     ssize_t writeFd(int fd, int* saveErrno);
@@ -117,6 +115,4 @@ private:
     std::vector<char> buffer_;
     size_t readerIndex_;
     size_t writerIndex_;
-
-    static const char kCRLF[];
 };

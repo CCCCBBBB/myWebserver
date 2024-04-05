@@ -46,6 +46,7 @@ public:
     void connectDestroyed();
 
     void send(const std::string &buf);
+    void send(Buffer* buf);
 private:
     enum StateE { kDisconnected, kConnecting, kConnected, kDisconnecting};
     void setState(StateE state) { state_ = state; }
@@ -57,7 +58,7 @@ private:
 
 
     void sendInLoop(const void* message, size_t len);
-
+    void sendInLoop(const std::string& message);
     void shutdownInLoop();
 
 

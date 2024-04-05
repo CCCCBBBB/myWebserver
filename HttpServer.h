@@ -22,9 +22,7 @@ private:
                  Buffer* buf,
                  Timestamp receiveTime);
 
-    void HttpCallback();
-
-
     TcpServer server_;
+    char* srcDir_;
 
 };

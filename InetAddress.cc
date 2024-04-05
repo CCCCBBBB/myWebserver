@@ -30,11 +30,3 @@ uint16_t InetAddress::toPort() const
 {
     return ntohs(addr_.sin_port);
 }
-
-// #include <iostream>
-// int main()
-// {
-//     InetAddress addr(8080);
-//     std::cout << addr.toIpPort() << std::endl;  
-//     return 0;
-// }
