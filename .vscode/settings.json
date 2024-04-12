@@ -58,6 +58,8 @@
         "cstring": "cpp",
         "map": "cpp",
         "regex": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "fstream": "cpp",
+        "any": "cpp"
     }
 }

@@ -19,7 +19,7 @@ public:
     virtual void removeChannel(Channel *channel) override;
 
 private:
-    static const int kInitEventListSize = 16;
+    static const int kInitEventListSize = 4096;
 
     void fillActiveChannels(int eventsNum, ChannelList *activerChannels) const;
     void update(int operation, Channel *channel);

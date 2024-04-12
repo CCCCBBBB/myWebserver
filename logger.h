@@ -5,6 +5,8 @@
 #include "noncopyable.h"
 #include "LogStream.h"
 
+// #define ENABLELOG
+#ifdef ENABLELOG
 // LOG_INFO("%s %d", arg1, arg2)
 #define LOG_INFO(logmsgFormat, ...)                       \
     do                                                    \
@@ -36,6 +38,11 @@
         logger.log(__FILE__, __LINE__, buf);                                  \
         exit(-1);                                         \
     } while (0)
+#else
+#define LOG_INFO(logmsgFormat, ...)
+#define LOG_ERROR(logmsgFormat, ...)
+#define LOG_FATAL(logmsgFormat, ...)
+#endif
 
 #ifdef ENABLEDEBUG
 #define LOG_DEBUG(logmsgFormat, ...)                     \

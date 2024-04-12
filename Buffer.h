@@ -25,6 +25,12 @@ public:
 
     const char* peek() const{ return begin() + readerIndex_; }
 
+    const char* findCRLF() const
+    {
+        // FIXME: replace with memmem()?
+        const char* crlf = std::search(peek(), beginWriteConst(), kCRLF, kCRLF+2);
+        return crlf == beginWriteConst() ? NULL : crlf;
+    }
 
     void retrieve(size_t len)
     {
@@ -115,4 +121,6 @@ private:
     std::vector<char> buffer_;
     size_t readerIndex_;
     size_t writerIndex_;
+
+    static const char kCRLF[];
 };

@@ -4,6 +4,7 @@
 #include "InetAddress.h"
 #include "Callbacks.h"
 #include "Buffer.h"
+#include "HttpContext.h"
 
 #include <memory>
 #include <string>
@@ -35,6 +36,17 @@ public:
 
 
     void shutdown();
+
+    void setContext(const HttpContext& context)
+    { context_ = context; }
+
+    const HttpContext& getContext() const
+    { return context_; }
+
+    HttpContext* getMutableContext()
+    { return &context_; }
+
+
 
     void setConnectionCallback(const ConnectionCallback& cb) { connectionCallback_ = cb; }
     void setMessageCallback(const MessageCallback& cb) { messageCallback_ = cb; }
@@ -83,4 +95,6 @@ private:
 
     Buffer inputBuffer_;
     Buffer outputBuffer_;
+
+    HttpContext context_;
 };

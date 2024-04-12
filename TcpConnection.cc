@@ -39,7 +39,7 @@ TcpConnection::TcpConnection(EventLoop *loop, const std::string &name, int sockf
     channel_->setErrorCallback(std::bind(&TcpConnection::handleError, this));
 
     LOG_INFO("TcpConnection::ctor[%s] at fd = %d \n", name_.c_str(), sockfd);
-    socket_->setKeepAlive(true);
+    // socket_->setKeepAlive(true);
 }
 
 TcpConnection::~TcpConnection()
@@ -219,11 +219,12 @@ void TcpConnection::handleWrite()
                     loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));// no need to use queueInLoop, now is in the localThread
                     // writeCompleteCallback_(shared_from_this());
                 }
+                if (state_ == kDisconnecting)
+                {
+                    shutdownInLoop();
+                }
             }
-            if (state_ == kDisconnecting)
-            {
-                shutdownInLoop();
-            }
+          
 
         }
         else
@@ -241,7 +242,7 @@ void TcpConnection::handleClose()
 {
     LOG_INFO("TcpConnection::handleClose fd=%d state=%d \n", channel_->fd(), (int)state_);
 
-    setState(kDisconnecting);
+    setState(kDisconnected);
     channel_->disableAll();
 
     TcpConnectionPtr connPtr(shared_from_this());

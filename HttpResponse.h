@@ -2,40 +2,70 @@
 #include "Buffer.h"
 
 #include <string>
-#include <unordered_map>
-#include <sys/stat.h>    // stat
+#include <map>
+#include <sys/stat.h> // stat
 
 class HttpResponse
 {
 public:
-    HttpResponse();
-    ~HttpResponse();
+    enum HttpStatusCode
+    {
+        kUnknown,
+        k200Ok = 200,
+        k301MovedPermanently = 301,
+        k400BadRequest = 400,
+        k404NotFound = 404,
+    };
 
-    void Init(const std::string& srcDir, std::string& path, bool isKeepAlive = false, int code = -1);
-    void MakeResponse(Buffer& buff);
-    void UnmapFile();
-    char* File();
-    size_t FileLen() const;
-    void ErrorContent(Buffer& buff, std::string message);
-    int Code() const { return code_; }
+    explicit HttpResponse(bool close)
+        : statusCode_(kUnknown),
+          closeConnection_(close)
+    {
+    }
+
+    void setStatusCode(HttpStatusCode code)
+    {
+        statusCode_ = code;
+    }
+
+    void setStatusMessage(const std::string &message)
+    {
+        statusMessage_ = message;
+    }
+
+    void setCloseConnection(bool on)
+    {
+        closeConnection_ = on;
+    }
+
+    bool closeConnection() const
+    {
+        return closeConnection_;
+    }
+
+    void setContentType(const std::string &contentType)
+    {
+        addHeader("Content-Type", contentType);
+    }
+
+    // FIXME: replace string with StringPiece
+    void addHeader(const std::string &key, const std::string &value)
+    {
+        headers_[key] = value;
+    }
+
+    void setBody(const std::string &body)
+    {
+        body_ = body;
+    }
+
+    void appendToBuffer(Buffer *output) const;
 
 private:
-    void AddStateLine_(Buffer &buff);
-    void AddHeader_(Buffer &buff);
-    void AddContent_(Buffer &buff);
-
-    void ErrorHtml_();
-    std::string GetFileType_();
-    int code_;
-    bool isKeepAlive_;
-
-    std::string path_;
-    std::string srcDir_;
-    
-    char* mmFile_; 
-    struct stat mmFileStat_;
-
-    static const std::unordered_map<std::string, std::string> SUFFIX_TYPE;
-    static const std::unordered_map<int, std::string> CODE_STATUS;
-    static const std::unordered_map<int, std::string> CODE_PATH;
+    std::map<std::string, std::string> headers_;
+    HttpStatusCode statusCode_;
+    // FIXME: add http version
+    std::string statusMessage_;
+    bool closeConnection_;
+    std::string body_;
 };

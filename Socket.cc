@@ -11,6 +11,8 @@
 Socket::~Socket()
 {
     close(sockfd_);
+    LOG_INFO("socket close %d \n", sockfd_);
+
 }
 
 void Socket::bindAddress(const InetAddress &localaddr)
