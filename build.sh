@@ -23,6 +23,7 @@ fi
 rm -fr ${SOURCE_DIR}/build/*
 cd  ${SOURCE_DIR}/build &&
     cmake .. &&
+    make install
 
 # 将头文件复制到 /usr/include
 cp ${SOURCE_DIR}/include/myWebserver -r /usr/local/include 

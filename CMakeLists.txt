@@ -28,7 +28,7 @@ target_link_libraries(myWebserver pthread)
 # 设置安装的默认路径
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 
-# 将目录安装到 include/tiny_network 下（只安装头文件）
+# 将目录安装到 include/myWebserver 下（只安装头文件）
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/ DESTINATION include/myWebserver
         FILES_MATCHING PATTERN "*.h")
         
