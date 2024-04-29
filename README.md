@@ -7,4 +7,16 @@
 * 使用`eventfd`作为线程异步唤醒手段
 * 遵循`RAII`原则，使用智能指针进行多线程的内存管理
 * 实现基于`双缓存异步日志`模块，前端缓存日志信息，后端线程负责定期的交换缓存及数据落盘
+* 封装性好，用户只用关心业务逻辑回调处理函数即可
 ## 多Reactor模型
+![](https://github.com/CCCCBBBB/myWebserver/blob/main/images/%E5%A4%9AReactor.png)
+MainReactor通过Acceptor监听并接受新连接，并将其轮询派发到subReactor，subReactor就负责监听处理这个连接的读写事件
+
+## 项目构建
+```
+./build.sh
+```
+运行示例 默认访问127.0.0.1：8000/
+```
+./webserver
+```
